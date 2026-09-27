@@ -24,13 +24,11 @@ sorted_variables = {
     "immutable": []
 }
 
-for name, value in globals().items():
-    if name.startswith("_"):
+for name, value in list(globals().items()):
+    if name in ["mutable_types", "immutable_types", "sorted_variables"]:
         continue
 
     if isinstance(value, mutable_types):
         sorted_variables["mutable"].append(value)
     elif isinstance(value, immutable_types):
         sorted_variables["immutable"].append(value)
-
-print(sorted_variables)
