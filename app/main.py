@@ -29,8 +29,8 @@ for name, value in globals().items():
         continue
 
     if isinstance(value, mutable_types):
-        sorted_variables["mutable"].append(name)
+        sorted_variables["mutable"].append(value)
     elif isinstance(value, immutable_types):
-        sorted_variables["immutable"].append(name)
+        sorted_variables["immutable"].append(value)
 
 print(sorted_variables)
